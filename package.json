@@ -1,0 +1,43 @@
+{
+  "name": "break-yourself",
+  "version": "1.0.0",
+  "description": "Test your current changes with your latest release, should help determine if a new version release has breaking changes",
+  "main": "index.js",
+  "bin": {
+    "break-yourself": "bin/break-yourself.js"
+  },
+  "scripts": {
+    "pretest": "eslint .",
+    "test-broken": "mocha --reporter spec --timeout 5000 $(find test -name '*.test.js')",
+    "watch-broken": "mocha --reporter spec --watch $(find test -name '*.test.js')",
+    "lint": "eslint . --ignore-path .gitignore",
+    "test:semver": "break-yourself"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/workjalexanderfox/break-yourself.git"
+  },
+  "keywords": [
+    "test",
+    "symver",
+    "dont",
+    "break"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "rsync": "^0.5.0",
+    "shelljs": "^0.7.4"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.0.2",
+    "break-yourself": "^1.0.0"
+  }
+}
